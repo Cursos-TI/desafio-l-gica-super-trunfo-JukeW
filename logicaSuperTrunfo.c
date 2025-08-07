@@ -11,6 +11,9 @@ int main(){
     float area2, pib2, densidadePopulacional2, pibPerCapita2, superPoder2 ;
     char estado2, cidade2[50], codigo2[4];
 
+    // Input do Usuário
+    int opcaoMenu;
+
 
     //Entrada das Informações da CARTA 1
     printf("Digite as informações da Carta 1\n");
@@ -77,73 +80,90 @@ int main(){
     superPoder2 = (float) populacao2 + area2 + pib2 + pibPerCapita2 + (1 / densidadePopulacional2) + pontosTuristicos2;
 
 
+
     // Exibição de Dados
-    printf("\n\nCarta 1:\nEstado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nNúmero de Pontos Turísticos: %d", estado1, codigo1, cidade1, populacao1, area1, pib1, pontosTuristicos1);
+    printf("\n\n### Carta 1 ###\nEstado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nNúmero de Pontos Turísticos: %d", estado1, codigo1, cidade1, populacao1, area1, pib1, pontosTuristicos1);
     printf("\nDensidade Populacional: %.2f hab/km²\nPIB per Capita: %.2f reais", densidadePopulacional1, pibPerCapita1);
     printf("\nSuper Poder: %.2f", superPoder1);
     
-    printf("\n\nCarta 2:\nEstado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nNúmero de Pontos Turísticos: %d", estado2, codigo2, cidade2, populacao2, area2, pib2, pontosTuristicos2);
+    printf("\n\n### Carta 2 ###\nEstado: %c\nCódigo: %s\nNome da Cidade: %s\nPopulação: %d\nÁrea: %.2f km²\nPIB: %.2f bilhões de reais\nNúmero de Pontos Turísticos: %d", estado2, codigo2, cidade2, populacao2, area2, pib2, pontosTuristicos2);
     printf("\nDensidade Populacional: %.2f hab/km²\nPIB per Capita: %.2f reais", densidadePopulacional2, pibPerCapita2);
     printf("\nSuper Poder: %.2f", superPoder2);
 
-    // Comparação entre as duas cartas
-    printf("\n\nComparação de Cartas:");
-    
-    if (populacao1 > populacao2){
-        printf("\nPopulação: Carta 1 venceu!");
-    } else if (populacao1 < populacao2) {
-        printf("\nPopulação: Carta 2 venceu!");
-    } else {
-        printf("\nPopulação: Carta 1 e Carta 2 empataram!");
-    }
 
-    if (area1 > area2){
-        printf("\nÁrea: Carta 1 venceu!");
-    } else if (area1 < area2) {
-        printf("\nÁrea: Carta 2 venceu!");
-    } else {
-        printf("\nÁrea: Carta 1 e Carta 2 empataram!");
-    }
+    // Menu Interativo para Comparação
+    printf("\n\n### COMPARAÇÃO DOS ATRIBUTOS ###\n\n1. População\n2. Área\n3. PIB\n4. Pontos Turísticos\n5. Densidade Populacional\n\nEscolha o número da opção você quer comparar: ");
+    scanf("%d", &opcaoMenu);
 
-    if (pib1 > pib2){
-        printf("\nPIB: Carta 1 venceu!");
-    } else if (pib1 < pib2) {
-        printf("\nPIB: Carta 2 venceu!");
-    } else {
-        printf("\nPIB: Carta 1 e Carta 2 empataram!");
-    }
+    switch(opcaoMenu){
+        case 1:
+            printf("\n\n\n### COMPARAÇÃO DA POPULAÇÃO ###\n");
+            printf("Carta 1 (%s): %d --- Carta 2 (%s): %d\n", cidade1, populacao1, cidade2, populacao2);
 
-    if (pontosTuristicos1 > pontosTuristicos2){
-        printf("\nPontos Turísticos: Carta 1 venceu!");
-    } else if (area1 < area2) {
-        printf("\nPontos Turísticos: Carta 2 venceu!");
-    } else {
-        printf("\nPontos Turísticos: Carta 1 e Carta 2 empataram!");
-    }
+            if (populacao1 > populacao2){
+                printf("Carta 1 venceu!");
+            } else if (populacao1 < populacao2) {
+                printf("Carta 2 venceu!");
+            } else {
+                printf("Carta 1 e Carta 2 empataram!");
+            }
+        break;
+        
+        case 2:
+            printf("\n\n### COMPARAÇÃO DA ÁREA ###\n");
+            printf("Carta 1 (%s): %d --- Carta 2 (%s): %d\n", cidade1, area1, cidade2, area2);
 
-    if (densidadePopulacional1 < densidadePopulacional2){
-        printf("\nDensidade Populacional: Carta 1 venceu! (pois tem menor densidade)");
-    } else if (densidadePopulacional1 > densidadePopulacional2) {
-        printf("\nDensidade Populacional: Carta 2 venceu! (pois tem menor densidade)");
-    } else {
-        printf("\nDensidade Populacional: Carta 1 e Carta 2 empataram!");
-    }
+            if (area1 > area2){
+                printf("Carta 1 venceu!");
+            } else if (area1 < area2) {
+                printf("Carta 2 venceu!");
+            } else {
+                printf("Carta 1 e Carta 2 empataram!");
+            }
+        break;
 
-    if (pibPerCapita1 > pibPerCapita2){
-        printf("\nPIB per Capita: Carta 1 venceu!");
-    } else if (pibPerCapita1 < pibPerCapita2) {
-        printf("\nPIB per Capita: Carta 2 venceu!");
-    } else {
-        printf("\nPIB per Capita: Carta 1 e Carta 2 empataram!");
-    }
+        case 3:
+            printf("\n\n### COMPARAÇÃO DO PIB ###\n");
+            printf("Carta 1 (%s): %d --- Carta 2 (%s): %d\n", cidade1, pib1, cidade2, pib2);
 
-    if (superPoder1 > superPoder2){
-        printf("\nSuper Poder: Carta 1 venceu!");
-    } else if (superPoder1 < superPoder2) {
-        printf("\nSuper Poder: Carta 2 venceu!");
-    } else {
-        printf("\nSuper Poder: Carta 1 e Carta 2 empataram!");
+            if (pib1 > pib2){
+                printf("Carta 1 venceu!");
+            } else if (pib1 < pib2) {
+                printf("Carta 2 venceu!");
+            } else {
+                printf("Carta 1 e Carta 2 empataram!");
+            }
+        break;        
+
+        case 4:
+            printf("\n\n### COMPARAÇÃO DOS PONTOS TURÍSTICOS ###\n");
+            printf("Carta 1 (%s): %d --- Carta 2 (%s): %d\n", cidade1, pontosTuristicos1, cidade2, pontosTuristicos2);
+
+            if (pontosTuristicos1 > pontosTuristicos2){
+                printf("Carta 1 venceu!");
+            } else if (pontosTuristicos1 < pontosTuristicos2) {
+                printf("Carta 2 venceu!");
+            } else {
+                printf("Carta 1 e Carta 2 empataram!");
+            }
+        break;
+
+        case 5:
+            printf("\n\n### COMPARAÇÃO DA DENSIDADE POPULACIONAL ###\n");
+            printf("Carta 1 (%s): %d --- Carta 2 (%s): %d\n", cidade1, densidadePopulacional1, cidade2, densidadePopulacional2);
+
+            if (densidadePopulacional1 < densidadePopulacional2){
+                printf("Carta 1 venceu! (pois tem menor densidade)");
+            } else if (densidadePopulacional1 > densidadePopulacional2) {
+                printf("Carta 2 venceu! (pois tem menor densidade)");
+            } else {
+                printf("Carta 1 e Carta 2 empataram!");
+            }        
+        break;
+
+        default:
+            printf("\n\nOpção inválida!\n");
     }
-    
+  
     return 0;
 }
